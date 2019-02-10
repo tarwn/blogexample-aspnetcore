@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
-export class Counter extends Component {
+interface ILocalState { 
+  currentCount: number
+}
+
+export class Counter extends Component<{}, ILocalState> {
   static displayName = Counter.name;
 
-  constructor (props) {
+  constructor (props: any) {
     super(props);
     this.state = { currentCount: 0 };
     this.incrementCounter = this.incrementCounter.bind(this);
@@ -18,7 +22,7 @@ export class Counter extends Component {
   render () {
     return (
       <div>
-        <h1>Counter</h1>
+        <h1>Counter - Test</h1>
 
         <p>This is a simple example of a React component.</p>
 
