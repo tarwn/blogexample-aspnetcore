@@ -23,6 +23,7 @@
     "@types/reactstrap": "^7.1.3",
     "ajv": "^6.0.0",
     "cross-env": "^5.2.0",
+    "jest-teamcity-reporter": "git+https://github.com/mhodgson/jest-teamcity-reporter",
     "typescript": "^3.3.3"
   },
   "eslintConfig": {
@@ -31,7 +32,8 @@
   "scripts": {
     "start": "rimraf ./build && react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "test": "react-scripts test --env=jsdom",
+    "test-ci": "cross-env TEAMCITY_VERSION=1 CI=true react-scripts test --env=jsdom --reporters=jest-teamcity-reporter",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/"
   },
