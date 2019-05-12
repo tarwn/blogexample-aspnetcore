@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import ForecastComponent from "./ForecastComponent";
 
-import * as actions from "./ducks/actions";
 import * as operations from "./ducks/operations";
 import { IRootState } from "./types";
 

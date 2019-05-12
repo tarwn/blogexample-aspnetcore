@@ -1,5 +1,3 @@
-import { combineReducers } from "redux";
-
 import { IForecast, IForecastState } from "../types";
 import * as types from "./types";
 
