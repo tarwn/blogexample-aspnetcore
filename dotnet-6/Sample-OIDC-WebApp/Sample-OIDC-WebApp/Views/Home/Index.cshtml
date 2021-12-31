@@ -1,0 +1,29 @@
+﻿@using Sample_OIDC_WebApp.Models
+@model HomeModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<nav>
+    <a href="/">Index</a>
+    <a href="/protected">Protected</a>
+    <a href="/missingAuth">Missing Auth</a>
+</nav>
+<div>
+    <h1>Welcome</h1>
+    @if (Model!.IsLoggedIn)
+    {
+        <div>You are: <b>Logged In</b></div>
+        <ul>
+            <li>User Id: @Model!.UserId</li>
+            @foreach(var claim in Model!.Claims)
+            {
+                <li>@claim.Type: @claim.Value</li>
+            }
+        </ul>
+    }
+    else
+    {
+        <div>You are <b>Logged Out</b></div>
+    }
+</div>
