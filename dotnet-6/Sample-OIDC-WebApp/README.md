@@ -2,7 +2,7 @@ This example project serves as an example for using WebApplicationFramework in .
 testing against a web application that relies on Open ID COnnect for authentication.
 
 References:
-* The blog post: [Mocking OIDC Auth while integration testing ASP.Net](http://www.tiernok.com/posts/2022/mocking-oidc-logins-for-integration-tests)
+* The blog post: [Mocking OIDC Auth while integration testing ASP.Net](http://www.tiernok.com/posts/2021/mocking-oidc-logins-for-integration-tests/)
 * [Integration tests in ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-6.0)
 
 # Running Locally
