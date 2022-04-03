@@ -87,5 +87,10 @@ module.exports = {
     children: false,
     colors: true,
     modules: false
+  },
+  infrastructureLogging: {
+    stream: process.stdout,
+    colors: false,
+    level: "info"
   }
 };
