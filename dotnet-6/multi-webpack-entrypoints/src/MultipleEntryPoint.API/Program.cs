@@ -42,7 +42,7 @@ app.UseSpa(builder => {
     builder.Options.SourcePath = "../reactapp";
     // this is designed to work with Webpack 4 only, we can hack it by outputting the hardcoded 🙄 output message
     //  it is watching for that indicates the server is running
-    builder.UseReactDevelopmentServer("start");
+    builder.UseReactDevelopmentServer("start:vs");
 });
 
 app.Run();

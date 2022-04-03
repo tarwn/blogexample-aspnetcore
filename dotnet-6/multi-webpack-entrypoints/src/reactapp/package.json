@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "npm run run:dev",
+    "start": "node ./scripts/devServer/devServer",
+    "start:vs": "cross-env ASPNET_PORT=7155 node ./scripts/devServer/devServer",
     "lint": "eslint \"src/**/*.{ts.tsx}\"",
     "build": "npm run build:prod",
-    "run:dev": "node ./scripts/devServer/devServer",
     "build:prod": "cross-env NODE_ENV=production webpack --config ./scripts/webpack/webpack.config.prod.js"
   },
   "author": "Eli Weinstock-Herman",

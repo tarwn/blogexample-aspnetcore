@@ -10,5 +10,8 @@ module.exports = {
   devProtocol: "http",
   devHost: process.env.HOST || "localhost",
   devPort: process.env.PORT || 8881,
+  clientWebSocketHost: "0.0.0.0",
+  clientWebSocketPort: process.env.ASPNET_PORT || process.env.PORT || 8881,
+
   buildPath: path.resolve(rootPath, "./dist")
 };
