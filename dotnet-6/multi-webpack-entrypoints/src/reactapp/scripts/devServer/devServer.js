@@ -33,6 +33,10 @@ compiler.hooks.done.tap("done", (stats) => {
       chalk.bold.greenBright("DevServer is running at"),
       chalk.bold.underline.cyan(`${devProtocol}://${devHost}:${devPort}\n`)
     );
+
+    // this pretends to be an older version of WebPack because Microsoft hard-coded the string
+    // it's expecting to see in UseReactDevelopmentServer
+    console.log("Starting the development server");
   }
 });
 
