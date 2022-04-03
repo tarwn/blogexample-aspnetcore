@@ -1,0 +1,91 @@
+const WebpackBar = require("webpackbar");
+const ESLintPlugin = require("eslint-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+
+const ReactRefreshTypeScript = require("react-refresh-typescript");
+
+const buildConfig = require("../env.config");
+
+/** @type { import("webpack").Configuration } */
+module.exports = {
+  context: buildConfig.rootPath,
+  entry: {
+    index: ["./src/index.tsx"]
+  },
+  output: {
+    path: buildConfig.buildPath,
+    publicPath: "/",
+    filename: "[name].js",
+    chunkFilename: "[name].chunk.js"
+  },
+  resolve: {
+    extensions: [".ts", ".tsx", ".js"]
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: "ts-loader",
+            options: {
+              getCustomTransformers: () => ({
+                before: [buildConfig.isDevelopment && ReactRefreshTypeScript()].filter(Boolean),
+              }),
+              transpileOnly: true
+            }
+          }
+        ],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              name: "images/[name].[ext]"
+            }
+          }
+        ]
+      },
+      {
+        test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8192,
+              mimetype: "application/font-woff",
+              name: "fonts/[name].[ext]"
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        use:
+          [
+            {
+              loader: "file-loader",
+              options: {
+                limit: 8192,
+                name: "fonts/[name].[ext]"
+              }
+            }
+          ]
+      }
+    ]
+  },
+  plugins: [
+    new ESLintPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
+    new WebpackBar()
+  ],
+  stats: {
+    children: false,
+    colors: true,
+    modules: false
+  }
+};
