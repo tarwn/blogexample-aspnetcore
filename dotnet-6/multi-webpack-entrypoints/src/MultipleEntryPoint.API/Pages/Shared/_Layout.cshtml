@@ -4,27 +4,34 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - MultipleEntryPoint.API</title>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <environment include="Development">
+        <script src="~/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    </environment>
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="header-logo"></div>
-            <div class="header-links"></div>
+    <div class="screen">
+        <header>
+            <div class="header-content">
+                <div class="header-logo"></div>
+                <div class="header-links">
+                  <a href="#">Help</a>
+                </div>
+            </div>
+        </header>
+        <div class="container">
+            <main role="main">
+                @RenderBody()
+            </main>
         </div>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+        <footer>
+            <div class="footer-content">
+                Awesome Footer
+            </div>
+        </footer>
     </div>
-
-    <footer>
-        <div class="footer-content">
-            Awesome Footer
-        </div>
-    </footer>
-
-    <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 </html>

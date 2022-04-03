@@ -1,9 +1,10 @@
-
+import { Screen } from "./components/Screen";
+import "./App.scss";
 
 export const App = () => {
   return (
-    <div>
+    <Screen>
       <h1>Hello!</h1>
-    </div>
+    </Screen>
   );
 };

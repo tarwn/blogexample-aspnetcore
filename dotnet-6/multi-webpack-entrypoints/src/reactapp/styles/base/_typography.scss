@@ -1,0 +1,17 @@
+@import "../variables";
+
+html {
+  font-family: $text-font-family;
+  color: $black;
+  font-size: $base-grid-size;
+  line-height: 1.5rem;
+}
+
+* {
+  font-size: $text-size-md;
+  line-height: $text-size-md * $text-lineheight-multiplier;
+}
+
+h1 {
+  font-size: $text-size-h1;
+}

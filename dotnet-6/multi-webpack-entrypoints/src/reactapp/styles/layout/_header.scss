@@ -1,0 +1,29 @@
+@import "../variables";
+
+.screen > header {
+  background-color: $color-whatever;
+
+  .header-content {
+    max-width: $width-desktop;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .header-logo{
+    // fake logo placeholder
+    border: 1px solid blue;
+    background-color: blue;
+    opacity: 0.8;
+    width: 6rem;
+    margin: $space-sm;
+  }
+
+  .header-links{
+    display: flex;
+    align-items: center;
+    column-gap: $space-md;
+  }
+}

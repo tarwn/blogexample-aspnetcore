@@ -1,0 +1,9 @@
+@import "../variables";
+
+.screen > .container {
+
+  & > main {
+    max-width: $width-desktop;
+    margin: auto;
+  }
+}

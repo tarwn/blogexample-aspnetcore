@@ -1,0 +1,31 @@
+@import "../variables";
+
+
+.screen {
+  display: grid;
+  grid-template-columns: [left] auto [right];
+  grid-template-rows: [top] 100px [content-start] auto [content-end] 50px [bottom];
+  width: 100vw;
+  height: 100vh;
+
+  & > header {
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: top;
+    grid-row-end: content-start;
+  }
+
+  & > .container {
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: content-start;
+    grid-row-end: content-end;
+  }
+
+  & > footer {
+    grid-column-start: left;
+    grid-column-end: right;
+    grid-row-start: content-end;
+    grid-row-end: bottom;
+  }
+}

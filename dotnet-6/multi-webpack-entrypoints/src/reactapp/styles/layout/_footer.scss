@@ -1,0 +1,14 @@
+@import "../variables";
+
+.screen > footer {
+  background-color: $color-whatever;
+
+  .footer-content {
+    max-width: $width-desktop;
+    margin: auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

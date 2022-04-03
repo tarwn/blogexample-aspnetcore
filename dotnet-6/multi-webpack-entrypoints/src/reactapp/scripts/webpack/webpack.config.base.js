@@ -10,13 +10,15 @@ const buildConfig = require("../env.config");
 module.exports = {
   context: buildConfig.rootPath,
   entry: {
-    index: ["./src/index.tsx"]
+    index: ["./src/index.tsx"],
+    site: ["./styles/site.scss"]
   },
   output: {
     path: buildConfig.buildPath,
     publicPath: "/",
     filename: "[name].js",
-    chunkFilename: "[name].chunk.js"
+    chunkFilename: "[name].chunk.js",
+    clean: true
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"]

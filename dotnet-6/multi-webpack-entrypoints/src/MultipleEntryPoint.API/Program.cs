@@ -3,10 +3,11 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddRazorPages();
+builder.Services.AddRazorPages(options => { });
 
 // Configure the SPA static files to come from a new parallel folder
-builder.Services.AddSpaStaticFiles(config => {
+builder.Services.AddSpaStaticFiles(config =>
+{
     config.RootPath = "reactroot";
 });
 
@@ -33,11 +34,15 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapRazorPages();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapRazorPages();
+});
 
 // in development this will start the web server + proxy calls to it
 // in production, it will simply return "index.html" for all un-routed calls that make it this far
-app.UseSpa(builder => {
+app.UseSpa(builder =>
+{
     builder.Options.DefaultPage = "/reactroot/index.html";
     builder.Options.SourcePath = "../reactapp";
     // this is designed to work with Webpack 4 only, we can hack it by outputting the hardcoded 🙄 output message

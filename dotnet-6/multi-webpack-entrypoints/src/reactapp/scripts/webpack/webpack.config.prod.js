@@ -1,6 +1,7 @@
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const config = require("./webpack.config.base");
 config.mode = "production";
@@ -30,16 +31,21 @@ config.optimization = {
 
 config.module.rules.push(
   {
-    test: /\.css$/,
-    use: [MiniCssExtractPlugin.loader, "css-loader"]
+    test: /\.s?css$/,
+    use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
   }
 );
 
 config.plugins.push(
   new MiniCssExtractPlugin({
-    filename: "[name].css",
+    filename: "css/[name].css",
     chunkFilename: "[id].chunk.css"
   })
 );
+config.plugins.push(new HtmlWebpackPlugin({
+  chunks: ["index"],
+  title: "Loading...",
+  template: "./scripts/webpack/templates/index.html"
+}));
 
 module.exports = config;
