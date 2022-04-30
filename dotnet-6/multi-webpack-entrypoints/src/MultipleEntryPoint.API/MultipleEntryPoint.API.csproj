@@ -4,12 +4,11 @@
 		<TargetFramework>net6.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<SpaRoot>../reactapp</SpaRoot>
+		<SpaRoot>..\reactapp\</SpaRoot>
 	</PropertyGroup>
 
 	<ItemGroup>
 		<Folder Include="API\" />
-		<Folder Include="reactroot\" />
 		<Folder Include="wwwroot\" />
 	</ItemGroup>
 
@@ -54,7 +53,7 @@
 		<!-- Include the newly-built files in the publish output -->
 		<ItemGroup>
 			<DistFiles Include="$(SpaRoot)dist\**" />
-			<ResolvedFileToPublish Include="@(DistFiles->'reactroot%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
+			<ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
 				<RelativePath>%(DistFiles.Identity)</RelativePath>
 				<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 			</ResolvedFileToPublish>

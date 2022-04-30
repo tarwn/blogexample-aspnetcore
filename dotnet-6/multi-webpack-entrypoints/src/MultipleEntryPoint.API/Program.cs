@@ -8,7 +8,7 @@ builder.Services.AddRazorPages(options => { });
 // Configure the SPA static files to come from a new parallel folder
 builder.Services.AddSpaStaticFiles(config =>
 {
-    config.RootPath = "reactroot";
+    config.RootPath = "reactapp/dist";
 });
 
 var app = builder.Build();
@@ -43,7 +43,9 @@ app.UseEndpoints(endpoints =>
 // in production, it will simply return "index.html" for all un-routed calls that make it this far
 app.UseSpa(builder =>
 {
-    builder.Options.DefaultPage = "/reactroot/index.html";
+    // default page in production
+    builder.Options.DefaultPage = "/reactapp/dist/index.html";
+    // source path to run in development
     builder.Options.SourcePath = "../reactapp";
     // this is designed to work with Webpack 4 only, we can hack it by outputting the hardcoded 🙄 output message
     //  it is watching for that indicates the server is running
